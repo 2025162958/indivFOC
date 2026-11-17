@@ -5,13 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundamentals of Computing - Project</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .project-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+        .project-section h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        input {
+            padding: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 5px 15px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #16a085;
+        }
+        .output {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Fundamentals of Computing</h1>
         <nav>
             <a href="index.html">Course</a>
-            <a href="project.html">Project</a>
+            <a href="project.html" class="active">Project</a>
             <a href="concepts.html">Concepts</a>
             <a href="databases.html">Databases</a>
             <a href="documentation.html">Documentation</a>
@@ -22,24 +53,180 @@
         <div class="card">
             <h2>Project</h2>
             <p>The final project will consist of 4 sections. Each section has a deadline to complete. A complete description of the project can be found on the course moodle site. It will consist of launching a website built with, html, css, and javascript and hosted on github. This site is a benchmark for the Final Project. See Project Specification on Moodle Site.</p>
-            <ul>
-                <li>Project 1: NOT Gate</li>
-                <li>Project 2: AND Gate</li>
-                <li>Project 3: AND Gate -easy version</li>
-                <li>Project 4: Binary to Hexadecimal Converter</li>
-                <li>Project 5: ASCII Converter</li>
-                <li>Project 6: UNICODE Converter</li>
-                <li>Project 7: Machine Language Instructions Converter</li>
-                <li>Project 8: Sum of Even Numbers</li>
-                <li>Project 9: Sum of Odd Numbers</li>
-                <li>Project 10: Factorial of Numbers</li>
-                <li>Project 11: BMI Calculator</li>
-            </ul>
+            
+            <div class="project-section">
+                <h3>Project 1: NOT Gate</h3>
+                <input type="text" id="p1" placeholder="Enter 1 or 0">
+                <button onclick="runP1()">Submit</button>
+                <p id="out1" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 2: AND Gate</h3>
+                <input type="text" id="p2a" placeholder="Input A (1 or 0)">
+                <input type="text" id="p2b" placeholder="Input B (1 or 0)">
+                <button onclick="runP2()">Submit</button>
+                <p id="out2" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 3: AND Gate - easy version</h3>
+                <button onclick="runP3(1, 1)">Test 1 AND 1</button>
+                <button onclick="runP3(1, 0)">Test 1 AND 0</button>
+                <button onclick="runP3(0, 0)">Test 0 AND 0</button>
+                <p id="out3" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 4: Binary to Hexadecimal Converter</h3>
+                <input type="text" id="p4" placeholder="Enter binary (e.g. 1010)">
+                <button onclick="runP4()">Convert</button>
+                <p id="out4" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 5: ASCII Converter</h3>
+                <input type="text" id="p5" placeholder="Enter a character">
+                <button onclick="runP5()">Convert</button>
+                <p id="out5" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 6: UNICODE Converter</h3>
+                <input type="text" id="p6" placeholder="Enter text or emoji">
+                <button onclick="runP6()">Convert</button>
+                <p id="out6" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 7: Machine Language Instructions Converter</h3>
+                <input type="text" id="p7" placeholder="Enter opcode (e.g. 0001)">
+                <button onclick="runP7()">Decode</button>
+                <p id="out7" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 8: Sum of Even Numbers</h3>
+                <input type="number" id="p8" placeholder="Enter max number">
+                <button onclick="runP8()">Calculate</button>
+                <p id="out8" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 9: Sum of Odd Numbers</h3>
+                <input type="number" id="p9" placeholder="Enter max number">
+                <button onclick="runP9()">Calculate</button>
+                <p id="out9" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 10: Factorial of Numbers</h3>
+                <input type="number" id="p10" placeholder="Enter a number">
+                <button onclick="runP10()">Calculate</button>
+                <p id="out10" class="output"></p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 11: BMI Calculator</h3>
+                <input type="number" id="w" placeholder="Weight in kg">
+                <input type="number" id="h" placeholder="Height in meters">
+                <button onclick="runP11()">Calculate</button>
+                <p id="out11" class="output"></p>
+            </div>
+
         </div>
     </main>
     <footer>
         <p>&copy; Powered by UB</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+        function runP1() {
+            let val = document.getElementById("p1").value;
+            if (val === "1") {
+                document.getElementById("out1").innerHTML = "Output: 0";
+            } else if (val === "0") {
+                document.getElementById("out1").innerHTML = "Output: 1";
+            } else {
+                document.getElementById("out1").innerHTML = "Invalid input";
+            }
+        }
+
+        function runP2() {
+            let a = document.getElementById("p2a").value;
+            let b = document.getElementById("p2b").value;
+            if (a === "1" && b === "1") {
+                document.getElementById("out2").innerHTML = "Output: 1";
+            } else {
+                document.getElementById("out2").innerHTML = "Output: 0";
+            }
+        }
+
+        function runP3(a, b) {
+            let result = a & b;
+            document.getElementById("out3").innerHTML = "Result: " + result;
+        }
+
+        function runP4() {
+            let bin = document.getElementById("p4").value;
+            let hex = parseInt(bin, 2).toString(16).toUpperCase();
+            document.getElementById("out4").innerHTML = "Hex: " + hex;
+        }
+
+        function runP5() {
+            let char = document.getElementById("p5").value;
+            let ascii = char.charCodeAt(0);
+            document.getElementById("out5").innerHTML = "ASCII Code: " + ascii;
+        }
+
+        function runP6() {
+            let text = document.getElementById("p6").value;
+            let code = text.codePointAt(0).toString(16).toUpperCase();
+            document.getElementById("out6").innerHTML = "UNICODE: U+" + code;
+        }
+
+        function runP7() {
+            let code = document.getElementById("p7").value;
+            if (code === "0000") document.getElementById("out7").innerHTML = "Instruction: HALT";
+            else if (code === "0001") document.getElementById("out7").innerHTML = "Instruction: LOAD";
+            else if (code === "0010") document.getElementById("out7").innerHTML = "Instruction: STORE";
+            else if (code === "0011") document.getElementById("out7").innerHTML = "Instruction: ADD";
+            else document.getElementById("out7").innerHTML = "Instruction: UNKNOWN";
+        }
+
+        function runP8() {
+            let max = parseInt(document.getElementById("p8").value);
+            let sum = 0;
+            for (let i = 2; i <= max; i = i + 2) {
+                sum = sum + i;
+            }
+            document.getElementById("out8").innerHTML = "Sum: " + sum;
+        }
+
+        function runP9() {
+            let max = parseInt(document.getElementById("p9").value);
+            let sum = 0;
+            for (let i = 1; i <= max; i = i + 2) {
+                sum = sum + i;
+            }
+            document.getElementById("out9").innerHTML = "Sum: " + sum;
+        }
+
+        function runP10() {
+            let num = parseInt(document.getElementById("p10").value);
+            let fact = 1;
+            for (let i = 1; i <= num; i++) {
+                fact = fact * i;
+            }
+            document.getElementById("out10").innerHTML = "Factorial: " + fact;
+        }
+
+        function runP11() {
+            let w = parseFloat(document.getElementById("w").value);
+            let h = parseFloat(document.getElementById("h").value);
+            let bmi = w / (h * h);
+            document.getElementById("out11").innerHTML = "Your BMI: " + bmi.toFixed(2);
+        }
+    </script>
 </body>
 </html>
